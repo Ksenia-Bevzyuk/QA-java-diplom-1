@@ -1,10 +1,9 @@
 public class LimitDecPlaces {
-    public static float roundToPlaces (float value, int places) {
-        if (places < 0) throw new IllegalArgumentException();
+    public static float limitDecPlaces(float value, int places) {
 
-        long factor = (long) Math.pow(10, places);
-        value = value * factor;
-        long tmp = Math.round(value);
-        return (float) tmp / factor;
+        long deg = (long) Math.pow(10, places);
+        value = value * deg;
+        long limit = Math.round(value);
+        return (float) limit / deg;
     }
 }
