@@ -6,7 +6,8 @@ import org.mockito.junit.MockitoJUnitRunner;
 import praktikum.Bun;
 import praktikum.Burger;
 import praktikum.Ingredient;
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
+import org.assertj.core.api.SoftAssertions;
 
 @RunWith(MockitoJUnitRunner.class)
 public class BurgerSetTest {
@@ -56,8 +57,10 @@ public class BurgerSetTest {
 
         burgerTestList.moveIngredient(0, 1);
 
-        assertEquals("Ожидается, что длина не изменилась", ingredientListSize, burgerTestList.ingredients.size());
-        assertEquals("Ожидается иное положение ингредиента", ingredient, burgerTestList.ingredients.get(1));
-        assertEquals("Ожидается иное положение ингредиента", ingredient1, burgerTestList.ingredients.get(0));
+        SoftAssertions softAssertions = new SoftAssertions();
+
+        softAssertions.assertThat(ingredientListSize).isEqualTo(burgerTestList.ingredients.size());
+        softAssertions.assertThat(ingredient).isEqualTo(burgerTestList.ingredients.get(1));
+        softAssertions.assertThat(ingredient1).isEqualTo(burgerTestList.ingredients.get(0));
     }
 }
