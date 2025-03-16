@@ -14,6 +14,7 @@
 - junit:junit:4.13.2(test)
 - mockito-core 3.12.4
 - com.github.javafaker:javafaker:1.0.2
+- org.assertj:assertj-core:4.0.0-M1
 
 #### Plugins
 - maven-compiler-plugin 3.8.1
